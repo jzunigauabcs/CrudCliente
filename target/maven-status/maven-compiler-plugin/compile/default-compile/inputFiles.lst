@@ -1,1 +1,8 @@
-/home/jzuniga/NetBeansProjects/CrudCliente/src/main/java/com/crudcliente/NewJFrame.java
+/home/jzuniga/NetBeansProjects/CrudCliente/src/main/java/com/crudcliente/view/LoginViewFrame.java
+/home/jzuniga/NetBeansProjects/CrudCliente/src/main/java/com/crudcliente/Main.java
+/home/jzuniga/NetBeansProjects/CrudCliente/src/main/java/com/crudcliente/db/DBConnection.java
+/home/jzuniga/NetBeansProjects/CrudCliente/src/main/java/com/crudcliente/models/Cliente.java
+/home/jzuniga/NetBeansProjects/CrudCliente/src/main/java/com/crudcliente/controllers/LoginController.java
+/home/jzuniga/NetBeansProjects/CrudCliente/src/main/java/com/crudcliente/config/Database.java
+/home/jzuniga/NetBeansProjects/CrudCliente/src/main/java/com/crudcliente/dao/LogginDao.java
+/home/jzuniga/NetBeansProjects/CrudCliente/src/main/java/com/crudcliente/view/LoginView.java

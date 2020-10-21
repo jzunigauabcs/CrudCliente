@@ -1,3 +1,10 @@
-com/crudcliente/NewJFrame.class
-com/crudcliente/NewJFrame$1.class
-com/crudcliente/NewJFrame$2.class
+com/crudcliente/dao/LogginDao.class
+com/crudcliente/view/LoginViewFrame$2.class
+com/crudcliente/models/Cliente.class
+com/crudcliente/Main.class
+com/crudcliente/view/LoginViewFrame$1.class
+com/crudcliente/config/Database.class
+com/crudcliente/controllers/LoginController.class
+com/crudcliente/view/LoginView.class
+com/crudcliente/db/DBConnection.class
+com/crudcliente/view/LoginViewFrame.class
