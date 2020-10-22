@@ -25,8 +25,7 @@ public class ClienteDao {
     private DBConnection dbConn;
     
     public ClienteDao() {
-        this.dbConn = new DBConnection();
-        
+        this.dbConn = new DBConnection();        
     }
            
     public ArrayList<Cliente> getAll() {
