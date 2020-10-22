@@ -8,7 +8,6 @@ package com.crudcliente.dao;
 import com.crudcliente.db.DBConnection;
 import com.crudcliente.models.Cliente;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -20,30 +19,26 @@ import java.util.logging.Logger;
  *
  * @author jzuniga
  */
-public class LogginDao {
+public class ClienteDao {
 
     private Connection conn;
     private DBConnection dbConn;
     
-    public LogginDao() {
+    public ClienteDao() {
         this.dbConn = new DBConnection();
         
     }
-    
-    
-    
-    public Cliente findByEmail(String email, String password) {
-        Cliente cliente = null;
-        String query = "SELECT * FROM clientes WHERE email = ? AND password = ?";
-        
+           
+    public ArrayList<Cliente> getAll() {
+        ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+        String query = "SELECT * FROM clientes";
         try {
             this.conn = this.dbConn.getConnection();
-            PreparedStatement pstm = this.conn.prepareStatement(query);
-            pstm.setString(1, email);
-            pstm.setString(2, password);
-            ResultSet rs = pstm.executeQuery();
-            if(rs.next()) {
-                cliente = new Cliente();
+            Statement stmt = this.conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            
+            while(rs.next()) {
+                Cliente cliente = new Cliente();
                 cliente.setId(rs.getInt("id"));
                 cliente.setNombre(rs.getString("nombre"));
                 cliente.setApPaterno(rs.getString("ap_paterno"));
@@ -51,14 +46,13 @@ public class LogginDao {
                 cliente.setEmail(rs.getString("email"));
                 cliente.setPassword(rs.getString("password"));
                 cliente.setIsDeleted(rs.getBoolean("is_deleted"));
+                clientes.add(cliente);
             }
-            this.conn.close();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(LogginDao.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(LogginDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return cliente;
+        return clientes;
     }
-
 }
