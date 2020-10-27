@@ -31,6 +31,7 @@ public class LoginView {
         
         if(cliente != null) {
             System.out.println("Bienvenido " + cliente.getNombre() + " " + cliente.getApPaterno());
+            ClienteView.showMenu();
         } else {
             System.out.println("Usuario o contraseña incorrectos");
         }

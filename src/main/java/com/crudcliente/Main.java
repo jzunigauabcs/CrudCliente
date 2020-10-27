@@ -8,7 +8,6 @@ package com.crudcliente;
 import com.crudcliente.dao.LogginDao;
 import com.crudcliente.models.Cliente;
 import com.crudcliente.view.LoginView;
-import com.crudcliente.view.LoginViewFrame;
 
 /**
  *

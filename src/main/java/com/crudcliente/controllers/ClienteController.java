@@ -5,10 +5,18 @@
  */
 package com.crudcliente.controllers;
 
+import com.crudcliente.dao.ClienteDao;
+import com.crudcliente.models.Cliente;
+import java.util.ArrayList;
+
 /**
  *
  * @author jzuniga
  */
 public class ClienteController {
     
+    public ArrayList<Cliente> getAll() {
+        ClienteDao clienteDao = new ClienteDao();
+        return clienteDao.getAll();
+    }
 }
