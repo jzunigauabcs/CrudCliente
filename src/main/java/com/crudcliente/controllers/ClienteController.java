@@ -19,4 +19,9 @@ public class ClienteController {
         ClienteDao clienteDao = new ClienteDao();
         return clienteDao.getAll();
     }
+    
+    public int store(Cliente cliente) {
+        ClienteDao clienteDao = new ClienteDao();
+        return clienteDao.store(cliente);
+    }
 }

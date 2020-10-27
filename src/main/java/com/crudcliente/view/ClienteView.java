@@ -38,6 +38,7 @@ public class ClienteView {
                     showClientes();
                     break;
                 case 2:
+                    createCliente();
                     break;
                 case 3:
                     break;
@@ -55,6 +56,43 @@ public class ClienteView {
         for (Cliente cliente : clientes) {
             System.out.println("Nombre completo: " + cliente.getNombre()+ " " + cliente.getApPaterno()+ " " + cliente.getApMaterno());
         }
+    }
+    
+    private static void createCliente() {
+        Scanner io = new Scanner(System.in);
+        String nombre;
+        String apPaterno;
+        String apMaterno;
+        String email;
+        String password;
+        
+        System.out.println("Nombre del cliente: ");
+        nombre = io.next();
+        System.out.println("Primer apellido: ");
+        apPaterno = io.next();
+        System.out.println("Segundo apellido: ");
+        apMaterno = io.next();
+        System.out.println("Email: ");
+        email = io.next();
+        System.out.println("Contraseña: ");
+        password = io.next();
+        
+        Cliente cliente = new Cliente();
+        cliente.setNombre(nombre);
+        cliente.setApPaterno(apPaterno);
+        cliente.setApMaterno(apMaterno);
+        cliente.setEmail(email);
+        cliente.setPassword(password);
+        
+        ClienteController clienteC = new ClienteController();
+        int result = clienteC.store(cliente);
+        if(result == 1) {
+            System.out.println("Datos almacenados correctamente");
+            
+        } else {
+            System.out.println("Ocurrió un error al intentar almacenar los datos");
+        }
+        
     }
             
 }
