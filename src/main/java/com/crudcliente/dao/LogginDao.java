@@ -34,7 +34,7 @@ public class LogginDao {
     
     public Cliente findByEmail(String email, String password) {
         Cliente cliente = null;
-        String query = "SELECT * FROM clientes WHERE email = ? AND password = ?";
+        String query = "SELECT * FROM clientes WHERE email = ? AND password = SHA1(?)";
         
         try {
             this.conn = this.dbConn.getConnection();

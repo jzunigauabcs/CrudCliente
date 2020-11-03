@@ -77,4 +77,39 @@ public class ClienteDao {
         }
         return result;
     }
+    
+    public int updatePassword(Cliente cliente) {
+        int result = 0;
+        String query = "UPDATE clientes SET password = ? WHERE email = ?";
+        try {
+            this.conn = this.dbConn.getConnection();
+            PreparedStatement pstm = this.conn.prepareStatement(query);
+            pstm.setString(2, cliente.getEmail());
+            pstm.setString(1, cliente.getPassword());
+            result = pstm.executeUpdate();
+            this.conn.close();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
+    
+    public int delete(String email) {
+        int result = 0;
+        String query = "DELETE FROM clientes WHERE email = ?";
+        try {
+            this.conn = this.dbConn.getConnection();
+            PreparedStatement pstm = this.conn.prepareStatement(query);
+            pstm.setString(1, email);
+            result = pstm.executeUpdate();
+            this.conn.close();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
 }

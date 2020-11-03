@@ -25,7 +25,8 @@ public class ClienteView {
             System.out.println("1.- Mostrar listado de clientes");
             System.out.println("2.- Crear nuevo cliente");
             System.out.println("3.- Cambiar password");
-            System.out.println("4.- Salir");
+            System.out.println("4.- Eliminar cliente");
+            System.out.println("5.- Salir");
             System.out.println("Seleccione una opción: ");
             opcion = io.nextInt();
             if(opcion < 1 || opcion > 4) {
@@ -41,10 +42,14 @@ public class ClienteView {
                     createCliente();
                     break;
                 case 3:
+                    updatePassword();
+                    break;
+                case 4:
+                    deleteCliente();
                     break;
             }
                 
-        }while(opcion != 4);
+        }while(opcion != 5);
         
     }
     
@@ -93,6 +98,44 @@ public class ClienteView {
             System.out.println("Ocurrió un error al intentar almacenar los datos");
         }
         
+    }
+    
+    private static void updatePassword() {
+        Scanner io = new Scanner(System.in);
+        String email;
+        String password;
+        System.out.println("Ingrese email del cliente: ");
+        email = io.next();
+        System.out.println("Ingrese nueva contraseña (debe ser mayor a 2 caracteres y no se permiten contraseñas que se utilizó con anterioridad): ");
+        password = io.next();
+        
+        Cliente cliente = new Cliente();
+        cliente.setEmail(email);
+        cliente.setPassword(password);
+        ClienteController clienteC = new ClienteController();
+        int result = clienteC.updatePassword(cliente);
+        if(result == 1) {
+            System.out.println("Datos actualizados correctamente");
+            
+        } else {
+            System.out.println("Ocurrió un error al intentar actualizar los datos");
+        }
+    }
+    
+    private static void deleteCliente() {
+         Scanner io = new Scanner(System.in);
+         String email;
+        System.out.println("Ingrese email del cliente a eliminar: ");
+        email = io.next();
+        
+        ClienteController clienteC = new ClienteController();
+        int result = clienteC.delete(email);
+        if(result == 1) {
+            System.out.println("Datos eliminados correctamente");
+            
+        } else {
+            System.out.println("Ocurrió un error al intentar eliminar los datos del cliente");
+        } 
     }
             
 }

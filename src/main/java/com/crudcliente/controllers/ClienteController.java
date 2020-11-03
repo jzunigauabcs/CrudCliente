@@ -24,4 +24,14 @@ public class ClienteController {
         ClienteDao clienteDao = new ClienteDao();
         return clienteDao.store(cliente);
     }
+    
+    public int updatePassword(Cliente cliente) {
+        ClienteDao clienteDao = new ClienteDao();
+        return clienteDao.updatePassword(cliente);
+    }
+    
+    public int delete(String email) {
+        ClienteDao clienteDao = new ClienteDao();
+        return clienteDao.delete(email);
+    }
 }
